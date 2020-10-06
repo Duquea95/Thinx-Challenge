@@ -1,5 +1,6 @@
 import React from 'react';
 import PdpTop from './components/PdpTop';
+import PdpBottom from './components/PdpBottom';
 
 function App() {
   return (
