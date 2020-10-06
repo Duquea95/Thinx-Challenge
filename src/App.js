@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <main>
         <PdpTop />
+        <PdpBottom />
       </main>
     </div>
   );
