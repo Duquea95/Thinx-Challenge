@@ -13,73 +13,73 @@ const PdpBottom = () => {
             <div className="column full-width">
               <div className="row pdp-related-products__section">
                 <div className="column column-6 pdp-related-product-left">
-                  <div>
+                  <a href="#" className="pdp-related-product__link">
                     <div>
                       <img className="pdp-related-product-image__horizontal" src={Bottom1}/>
                     </div>
-                    <div>
-                      <span>Shop Hiphugger</span>
+                    <div className="margin-bottom--s">
+                      <span className="underline">Shop Hiphugger</span>
                     </div>
                     <div>
                       <span>heavy days</span>
                     </div>
-                  </div>
+                  </a>
                 </div>
                 <div className="column column-6 pdp-related-product-right">
-                  <div>
+                  <a href="#" className="pdp-related-product__link">
                     <div>
                       <img className="pdp-related-product-image__vertical" src={Bottom2}/>
                     </div>
-                    <div>
-                      <span>Shop Cheeky</span>
+                    <div className="margin-bottom--s">
+                      <span className="underline">Shop Cheeky</span>
                     </div>
                     <div>
                       <span>light days</span>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
               <div className="row pdp-related-products__section">
                 <div className="column full-width pdp-related-product">
-                  <div>
+                  <a href="#" className="pdp-related-product__link">
                     <div>
                       <img className="pdp-related-product-image__horizontal" src={Bottom3}/>
                     </div>
                     <div>
-                      <span>Shop Thong</span>
+                      <span className="underline">Shop Thong</span>
                     </div>
                     <div>
                       <span>lightest days</span>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
               <div className="row pdp-related-products__section">
                 <div className="column column-6 pdp-related-product-left">
-                  <div>
+                  <a href="#" className="pdp-related-product__link">
                     <div>
                       <img className="pdp-related-product-image__horizontal" src={Bottom4}/>
                     </div>
                     <div>
-                      <span>Shop Sport</span>
+                      <span className="underline">Shop Sport</span>
                     </div>
                     <div>
                       <span>medium days</span>
                     </div>
-                  </div>
+                  </a>
                 </div>
                 <div className="column column-6 pdp-related-product-right">
-                  <div>
+                  <a href="#" className="pdp-related-product__link">
                     <div>
                       <img className="pdp-related-product-image__vertical" src={Bottom5}/>
                     </div>
                     <div>
-                      <span>Shop Boyshort</span>
+                      <span className="underline">Shop Boyshort</span>
                     </div>
                     <div>
                       <span>light days</span>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
