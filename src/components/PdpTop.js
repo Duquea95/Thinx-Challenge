@@ -7,7 +7,7 @@ const PdpTop = () => {
     const [isProductBlack, setIsProductBlack] = useState(true);
     const [isProductBeige, setIsProductBeige] = useState(false);
     const [isSizeDropdown, setIsSizeDropdown] = useState(false);
-    const [productSize, setIsProductSize] = useState("size");
+    const [productSize, setProductSize] = useState(0);
 
     const decrementQuantityButton = () => {
         quantityNumber <= 1 ? setQuantityNumber(quantityNumber) : setQuantityNumber(quantityNumber - 1)
@@ -36,9 +36,9 @@ const PdpTop = () => {
         setIsSizeDropdown(!isSizeDropdown)
     }
 
-    // const setProductSize = () => {
-    //     console.log("Drop")
-    // }
+    const updateProductSize = () => {
+        console.log(productSize)
+    }
 
     return(
         <div className="pdp-content container-fluid">
@@ -87,12 +87,12 @@ const PdpTop = () => {
                                                 <div className="dropdown margin-bottom-s">
                                                     <div>
                                                         <ul className={`${isSizeDropdown ? "open" : ""}`} onClick={toggleDropdown}>
-                                                            <li className={`active`}>size</li>
-                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`}>xs</li>
-                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`}>s</li>
-                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`}>m</li>
-                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`}>l</li>
-                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`}>xl</li>
+                                                            <li className={`active ${isSizeDropdown ? "active-border" : ""}`}>size</li>
+                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>xs</li>
+                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>s</li>
+                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>m</li>
+                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>l</li>
+                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>xl</li>
                                                         </ul>
                                                     </div>
                                                 </div>
