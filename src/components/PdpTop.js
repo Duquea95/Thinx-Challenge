@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Product1 from '../images/pdpTop/highwaist_black_front_2_1024x1024.jpg';
 
 const PdpTop = () => {
+
+    const [quantityNumber, setQuantityNumber] = useState(1);
+    const [quantity, setQuantity] = useState("quantity(1)");
+
+    const decrementQuantityButton = () => {
+        quantityNumber <= 1 ? setQuantityNumber(quantityNumber) : setQuantityNumber(quantityNumber - 1)
+        updatedQuantity()
+    }
+    const incrementQuantityButton = () => {
+        quantityNumber >= 9 ? setQuantityNumber(quantityNumber) : setQuantityNumber(quantityNumber + 1);
+        updatedQuantity()
+    }
+
+    const updatedQuantity = () => {
+        setQuantity(`quantity(${quantityNumber})`)
+    }
 
     return(
         <div className="pdp-content container-fluid">
@@ -34,20 +50,20 @@ const PdpTop = () => {
                                             </div>
                                             <div className="margin-bottom-l">
                                                 <div className="row">
-                                                    <div className="pdp-product-style">Color</div>
-                                                    <div className="pdp-product-style black-button">Black</div>
-                                                    <div className="pdp-product-style beige-button">Beige</div>
+                                                    <div className="pdp-product-style"><span className="product-style-button">color</span></div>
+                                                    <div className="pdp-product-style black-button"><span className="product-style-button">black</span></div>
+                                                    <div className="pdp-product-style beige-button"><span className="product-style-button">beige</span></div>
                                                 </div>
                                             </div>
                                             <div className="margin-bottom-l">
                                                 <div className="row pdp-product-quantity-button-container">
-                                                    <div className="pdp-product-quantity-buttons"><p>-</p></div>
-                                                    <div className="pdp-quantity-input__container"><input className="pdp-product-quantity-input" placeholder="quantity(0)"/></div>
-                                                    <div className="pdp-product-quantity-buttons"><p>+</p></div>
+                                                    <div className="pdp-product-quantity-buttons" onClick={decrementQuantityButton}><span>-</span></div>
+                                                    <div className="pdp-quantity-input__container"><span className="pdp-product-quantity-input">{quantity}</span></div>
+                                                    <div className="pdp-product-quantity-buttons" onClick={incrementQuantityButton}><span>+</span></div>
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="dropdown margin-bottom-l">
+                                                <div className="dropdown margin-bottom-s">
                                                     <div>
                                                         <ul>
                                                             <li disabled>size</li>
@@ -100,9 +116,9 @@ const PdpTop = () => {
                                             </div>
                                             <div className="margin-bottom-l">
                                                 <div className="row">
-                                                    <div className="pdp-product-style">Color</div>
-                                                    <div className="pdp-product-style black-button">Black</div>
-                                                    <div className="pdp-product-style beige-button">Beige</div>
+                                                    <div className="pdp-product-style"><span className="product-style-button">color</span></div>
+                                                    <div className="pdp-product-style black-button"><span className="product-style-button">black</span></div>
+                                                    <div className="pdp-product-style beige-button"><span className="product-style-button">beige</span></div>
                                                 </div>
                                             </div>
                                             <div className="margin-bottom-l">
@@ -113,7 +129,7 @@ const PdpTop = () => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="dropdown margin-bottom-l">
+                                                <div className="dropdown margin-bottom-s">
                                                     <div>
                                                         <ul>
                                                             <li disabled>size</li>
