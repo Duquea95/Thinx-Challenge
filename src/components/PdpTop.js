@@ -3,9 +3,11 @@ import Product1 from '../images/pdpTop/highwaist_black_front_2_1024x1024.jpg';
 
 const PdpTop = () => {
     const [quantityNumber, setQuantityNumber] = useState(1);
-    const [quantity, setQuantity] = useState("quantity(1)");
-    const [isBlack, setIsBlack] = useState(true);
-    const [isBeige, setIsBeige] = useState(false);
+    const [productQuantity, setProductQuantity] = useState("quantity(1)");
+    const [isProductBlack, setIsProductBlack] = useState(true);
+    const [isProductBeige, setIsProductBeige] = useState(false);
+    const [isSizeDropdown, setIsSizeDropdown] = useState(false);
+    const [productSize, setProductSize] = useState(0);
 
     const decrementQuantityButton = () => {
         quantityNumber <= 1 ? setQuantityNumber(quantityNumber) : setQuantityNumber(quantityNumber - 1)
@@ -17,16 +19,25 @@ const PdpTop = () => {
     }
 
     const updatedQuantity = () => {
-        setQuantity(`quantity(${quantityNumber})`)
+        setProductQuantity(`quantity(${quantityNumber})`)
     }
 
     const setStyleBlack = () => {
-        setIsBlack(true)
-        setIsBeige(false)
+        setIsProductBlack(true)
+        setIsProductBeige(false)
     }
     const setStyleBeige = () => {
-        setIsBeige(true)
-        setIsBlack(false)
+        setIsProductBeige(true)
+        setIsProductBlack(false)
+    }
+
+    const toggleDropdown = () => {
+        console.log("open")
+        setIsSizeDropdown(!isSizeDropdown)
+    }
+
+    const updateProductSize = () => {
+        console.log(productSize)
     }
 
     return(
@@ -61,27 +72,27 @@ const PdpTop = () => {
                                             <div className="margin-bottom-l">
                                                 <div className="row">
                                                     <div className="pdp-product-style"><span className="product-style-button">color</span></div>
-                                                    <div className="pdp-product-style black-button" onClick={setStyleBlack}><span className={`product-style-button ${isBlack ? "active-button" : ""}`}>black</span><span className={`${isBlack ? "active-style" : ""}`}></span></div>
-                                                    <div className="pdp-product-style beige-button" onClick={setStyleBeige}><span className={`product-style-button ${isBeige ? "active-button" : ""}`}>beige</span><span className={`${isBeige ? "active-style" : ""}`}></span></div>
+                                                    <div className="pdp-product-style black-button" onClick={setStyleBlack}><span className={`product-style-button ${isProductBlack ? "active-button" : ""}`}>black</span><span className={`${isProductBlack ? "active-style" : ""}`}></span></div>
+                                                    <div className="pdp-product-style beige-button" onClick={setStyleBeige}><span className={`product-style-button ${isProductBeige ? "active-button" : ""}`}>beige</span><span className={`${isProductBeige ? "active-style" : ""}`}></span></div>
                                                 </div>
                                             </div>
                                             <div className="margin-bottom-l">
                                                 <div className="row pdp-product-quantity-button-container">
                                                     <div className="pdp-product-quantity-buttons" onClick={decrementQuantityButton}><span>-</span></div>
-                                                    <div className="pdp-quantity-input__container"><span className="pdp-product-quantity-input">{quantity}</span></div>
+                                                    <div className="pdp-quantity-input__container"><span className="pdp-product-quantity-input">{productQuantity}</span></div>
                                                     <div className="pdp-product-quantity-buttons" onClick={incrementQuantityButton}><span>+</span></div>
                                                 </div>
                                             </div>
                                             <div>
                                                 <div className="dropdown margin-bottom-s">
                                                     <div>
-                                                        <ul>
-                                                            <li disabled>size</li>
-                                                            <li className="hidden">xs</li>
-                                                            <li className="hidden">s</li>
-                                                            <li className="hidden">m</li>
-                                                            <li className="hidden">l</li>
-                                                            <li className="hidden">xl</li>
+                                                        <ul className={`${isSizeDropdown ? "open" : ""}`} onClick={toggleDropdown}>
+                                                            <li className={`active ${isSizeDropdown ? "active-border" : ""}`}>size</li>
+                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>xs</li>
+                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>s</li>
+                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>m</li>
+                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>l</li>
+                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>xl</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -127,8 +138,8 @@ const PdpTop = () => {
                                             <div className="margin-bottom-l">
                                                 <div className="row">
                                                     <div className="pdp-product-style"><span className="product-style-button">color</span></div>
-                                                    <div className="pdp-product-style black-button" onClick={setStyleBlack}><span className={`product-style-button ${isBlack ? "active-button" : ""}`}>black</span><span className={`${isBlack ? "active-style" : ""}`}></span></div>
-                                                    <div className="pdp-product-style beige-button" onClick={setStyleBeige}><span className={`product-style-button ${isBeige ? "active-button" : ""}`}>beige</span><span className={`${isBeige ? "active-style" : ""}`}></span></div>
+                                                    <div className="pdp-product-style black-button" onClick={setStyleBlack}><span className={`product-style-button ${isProductBlack ? "active-button" : ""}`}>black</span><span className={`${isProductBlack ? "active-style" : ""}`}></span></div>
+                                                    <div className="pdp-product-style beige-button" onClick={setStyleBeige}><span className={`product-style-button ${isProductBeige ? "active-button" : ""}`}>beige</span><span className={`${isProductBeige ? "active-style" : ""}`}></span></div>
                                                 </div>
                                             </div>
                                             <div className="margin-bottom-l">
@@ -137,7 +148,7 @@ const PdpTop = () => {
                                                         <span>-</span>
                                                     </div>
                                                     <div className="pdp-quantity-input__container">
-                                                        <span className="pdp-product-quantity-input">{quantity}</span>
+                                                        <span className="pdp-product-quantity-input">{productQuantity}</span>
                                                     </div>
                                                     <div className="pdp-product-quantity-buttons" onClick={incrementQuantityButton}>
                                                         <span>+</span>
@@ -147,8 +158,8 @@ const PdpTop = () => {
                                             <div>
                                                 <div className="dropdown margin-bottom-s">
                                                     <div>
-                                                        <ul>
-                                                            <li disabled>size</li>
+                                                        <ul onClick={toggleDropdown}>
+                                                            <li className="active" disabled>size</li>
                                                             <li className="hidden">xs</li>
                                                             <li className="hidden">s</li>
                                                             <li className="hidden">m</li>

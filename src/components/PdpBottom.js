@@ -39,7 +39,7 @@ const PdpBottom = () => {
                 </div>
               </div>
               <div className="row pdp-related-products__section">
-                <div className="column full-width column-12__mobile pdp-related-product">
+                <div className="column column-12__mobile pdp-related-product">
                   <a href="#" className="pdp-related-product__link">
                     <div className="margin-bottom-s">
                       <img className="pdp-related-product-image__horizontal" src={Bottom3}/>

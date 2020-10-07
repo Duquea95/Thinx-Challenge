@@ -190,12 +190,22 @@ img {
 .dropdown ul{
   height: 25px;
 }
+.dropdown ul.open {
+  height: auto;
+}
 .dropdown li{
-  padding: 0 15px;
+  padding: 6px 15px;
   height: 100%;
-  display: flex;
   align-items: center;
 }
+.dropdown li.active {
+  display: flex;
+  height: 25px;
+}
+.dropdown li.active-border{
+  border-bottom: 1px solid black;
+}
+border-bottom: 1px solid black;
 .pdp-related-product {
   display: flex;
   justify-content: center;
@@ -207,6 +217,7 @@ img {
 }
 .pdp-related-products__section:nth-child(2){
   align-items: center;
+  justify-content: center;
   padding: 25px 0;
 }
 .pdp-related-products__section:nth-child(3){
