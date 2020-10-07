@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import Product1 from '../images/pdpTop/highwaist_black_front_2_1024x1024.jpg';
 
 const PdpTop = () => {
-
     const [quantityNumber, setQuantityNumber] = useState(1);
     const [quantity, setQuantity] = useState("quantity(1)");
+    const [isBlack, setIsBlack] = useState(true);
+    const [isBeige, setIsBeige] = useState(false);
 
     const decrementQuantityButton = () => {
         quantityNumber <= 1 ? setQuantityNumber(quantityNumber) : setQuantityNumber(quantityNumber - 1)
@@ -17,6 +18,15 @@ const PdpTop = () => {
 
     const updatedQuantity = () => {
         setQuantity(`quantity(${quantityNumber})`)
+    }
+
+    const setStyleBlack = () => {
+        setIsBlack(true)
+        setIsBeige(false)
+    }
+    const setStyleBeige = () => {
+        setIsBeige(true)
+        setIsBlack(false)
     }
 
     return(
@@ -51,8 +61,8 @@ const PdpTop = () => {
                                             <div className="margin-bottom-l">
                                                 <div className="row">
                                                     <div className="pdp-product-style"><span className="product-style-button">color</span></div>
-                                                    <div className="pdp-product-style black-button"><span className="product-style-button">black</span></div>
-                                                    <div className="pdp-product-style beige-button"><span className="product-style-button">beige</span></div>
+                                                    <div className="pdp-product-style black-button" onClick={setStyleBlack}><span className={`product-style-button ${isBlack ? "active-button" : ""}`}>black</span><span className={`${isBlack ? "active-style" : ""}`}></span></div>
+                                                    <div className="pdp-product-style beige-button" onClick={setStyleBeige}><span className={`product-style-button ${isBeige ? "active-button" : ""}`}>beige</span><span className={`${isBeige ? "active-style" : ""}`}></span></div>
                                                 </div>
                                             </div>
                                             <div className="margin-bottom-l">
@@ -117,15 +127,21 @@ const PdpTop = () => {
                                             <div className="margin-bottom-l">
                                                 <div className="row">
                                                     <div className="pdp-product-style"><span className="product-style-button">color</span></div>
-                                                    <div className="pdp-product-style black-button"><span className="product-style-button">black</span></div>
-                                                    <div className="pdp-product-style beige-button"><span className="product-style-button">beige</span></div>
+                                                    <div className="pdp-product-style black-button" onClick={setStyleBlack}><span className={`product-style-button ${isBlack ? "active-button" : ""}`}>black</span><span className={`${isBlack ? "active-style" : ""}`}></span></div>
+                                                    <div className="pdp-product-style beige-button" onClick={setStyleBeige}><span className={`product-style-button ${isBeige ? "active-button" : ""}`}>beige</span><span className={`${isBeige ? "active-style" : ""}`}></span></div>
                                                 </div>
                                             </div>
                                             <div className="margin-bottom-l">
                                                 <div className="row pdp-product-quantity-button-container">
-                                                    <div className="pdp-product-quantity-buttons"><p>-</p></div>
-                                                    <div className="pdp-quantity-input__container"><input className="pdp-product-quantity-input" placeholder="quantity(1)"/></div>
-                                                    <div className="pdp-product-quantity-buttons"><p>+</p></div>
+                                                    <div className="pdp-product-quantity-buttons" onClick={decrementQuantityButton}>
+                                                        <span>-</span>
+                                                    </div>
+                                                    <div className="pdp-quantity-input__container">
+                                                        <span className="pdp-product-quantity-input">{quantity}</span>
+                                                    </div>
+                                                    <div className="pdp-product-quantity-buttons" onClick={incrementQuantityButton}>
+                                                        <span>+</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div>
