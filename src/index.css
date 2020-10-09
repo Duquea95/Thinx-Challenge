@@ -205,7 +205,6 @@ img {
 .dropdown li.active-border{
   border-bottom: 1px solid black;
 }
-border-bottom: 1px solid black;
 .pdp-related-product {
   display: flex;
   justify-content: center;
@@ -224,15 +223,16 @@ border-bottom: 1px solid black;
   align-items: center;
   padding: 25px 0 50px;
 }
-.pdp-related-product-left {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 25px;
-}
+.pdp-related-product-left,
 .pdp-related-product-right {
   display: flex;
+  padding: 0 50px;
+}
+.pdp-related-product-left {
+  justify-content: flex-end;
+}
+.pdp-related-product-right {
   justify-content: flex-start;
-  padding: 0 25px;
 }
 .pdp-related-product__link{
   color: black;
