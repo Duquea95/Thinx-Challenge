@@ -24,7 +24,7 @@ const DropdownMenu = ({options, prompt, value, onChange}) => {
         <div className="dropdown margin-bottom-s">
             <div>
                 <div 
-                    className = {`dropDown-control ${isOpen ? "open" : ""}`}
+                    className = {`control ${isOpen ? "open" : ""}`}
                     onClick = {() => setIsOpen(!isOpen)}
                 >
                     <div 

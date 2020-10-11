@@ -115,7 +115,7 @@ const PdpTop = () => {
                                                             <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>xl</li>
                                                     </div>
                                                 </div> */}
-                                                <div className="margin-bottom-xxl"> 
+                                                <div className="margin-bottom-xxl size-guide"> 
                                                     <p className="underline">
                                                     what's my size?
                                                     </p>

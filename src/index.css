@@ -105,7 +105,8 @@ img {
   display: none;
 }
 
-.pdp-product-header__center{
+.pdp-product-header__center,
+.pdp-product-quantity-input {
   text-align: center;
 }
 
@@ -152,7 +153,7 @@ img {
   font-size: 14px;
   font-weight: bold;
 }
-.pdp-product-quantity-input,
+.pdp-quantity-input__container,
 .pdp-product-quantity-buttons {
   border: 1px solid black;
   height: 25px;
@@ -160,8 +161,9 @@ img {
   justify-content: center;
   align-items: center;
   background: #fff;
+  padding: 6px 15px;
 }
-.pdp-product-quantity-input {
+.pdp-quantity-input__container {
   border-radius: 0px;
   border-left: none;
   border-right: none;
@@ -206,12 +208,15 @@ img {
   height: 100%;
   align-items: center;
 }
-.dropdown .active {
+.dropdown .selected-value {
   display: flex;
   height: 25px;
 }
 .dropdown .active-border{
   border-bottom: 1px solid black;
+}
+.size-guide p{
+  font-size: 12px;
 }
 .pdp-related-product {
   display: flex;
