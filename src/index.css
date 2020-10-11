@@ -206,11 +206,11 @@ img {
   height: 100%;
   align-items: center;
 }
-.dropdown li.active {
+.dropdown .active {
   display: flex;
   height: 25px;
 }
-.dropdown li.active-border{
+.dropdown .active-border{
   border-bottom: 1px solid black;
 }
 .pdp-related-product {
