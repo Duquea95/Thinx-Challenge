@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import Product1 from '../images/pdpTop/highwaist_black_front_2_1024x1024.jpg';
+import ProductImage1 from '../images/pdpTop/highwaist_black_front_2_1024x1024.jpg';
+import ProductImage2 from '../images/pdpTop/highwaist_black_front_3_1024x1024.jpg';
+import ProductImage3 from '../images/pdpTop/highwaist_black_front_4_1024x1024.jpg';
+import ProductImage4 from '../images/pdpTop/highwaist_black_back_1024x1024.jpg';
+import ProductImage5 from '../images/pdpTop/highwaist_black_side_1024x1024.jpg';
+import DropdownMenu from './DropdownMenu';
 
 const PdpTop = () => {
     const [quantityNumber, setQuantityNumber] = useState(1);
     const [productQuantity, setProductQuantity] = useState("quantity(1)");
     const [isProductBlack, setIsProductBlack] = useState(true);
     const [isProductBeige, setIsProductBeige] = useState(false);
-    const [isSizeDropdown, setIsSizeDropdown] = useState(false);
-    const [productSize, setProductSize] = useState(0);
+    const [value, setValue] = useState(null);
 
     const decrementQuantityButton = () => {
         quantityNumber <= 1 ? setQuantityNumber(quantityNumber) : setQuantityNumber(quantityNumber - 1)
@@ -31,30 +35,19 @@ const PdpTop = () => {
         setIsProductBlack(false)
     }
 
-    const toggleDropdown = () => {
-        setIsSizeDropdown(!isSizeDropdown)
-    }
-
-    const updateProductSize = () => {
-        console.log(productSize)
-        setProductSize(1)
+    const onChange = (val) => {
+        console.log(val)
+        setValue(val)
     }
 
     const sizes = [
-        {id: 1, size: "xs"},
-        {id: 2, size: "s"},
-        {id: 3, size: "m"},
-        {id: 4, size: "l"},
-        {id: 5, size: "xl"},
+        {id: 1, name: "xs"},
+        {id: 2, name: "s"},
+        {id: 3, name: "m"},
+        {id: 4, name: "l"},
+        {id: 5, name: "xl"},
     ]
-
-    const SizeList = () => {
-        return(
-            sizes.map(size =>
-                <li key={size.id} className={`${isSizeDropdown ? "" : "hidden"}`} onClick={console.log(this)}>{size.size}</li>
-            )
-        )
-    }
+    // const sizes = ["xs","s",'m','l','xl']
 
     return(
         <div className="pdp-content container-fluid">
@@ -66,7 +59,7 @@ const PdpTop = () => {
                                 <div className="pdp-content-desktop align-center">
                                     <div className="column pdp-product-header__left">
                                         <div className="margin-bottom-xl">
-                                            <h1>Hi-Waist</h1>
+                                            <h1 className="pdp-product-title uppercase">Hi-Waist</h1>
                                         </div>
                                         <div className="margin-bottom-xl">
                                             <p>Heavy days. Holds up to 2 tampon's worth.</p>
@@ -77,7 +70,7 @@ const PdpTop = () => {
                                     </div>
                                     <div className="column pdp-product-header__center">
                                         <picture>
-                                            <img className="pdp-product-image" src={Product1}/>
+                                            <img className="pdp-product-image" src={ProductImage1}/>
                                         </picture>
                                     </div>
                                     <div className="column pdp-product-header__right">
@@ -100,20 +93,28 @@ const PdpTop = () => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="dropdown margin-bottom-s">
+                                                <DropdownMenu
+                                                options={sizes}
+                                                prompt='size'
+                                                value={value}
+                                                onChange={onChange}
+                                                />
+                                                {/* <div className="dropdown margin-bottom-s">
                                                     <div>
-                                                        <ul className={`${isSizeDropdown ? "open" : ""}`} onClick={toggleDropdown}>
+                                                        <ul 
+                                                            className = {`${isSizeDropdown ? "open" : ""}`}
+                                                            onClick = {() => setIsSizeDropdown(!isSizeDropdown)}
+                                                        >
                                                             <li className={`active ${isSizeDropdown ? "active-border" : ""}`}>size</li>
-                                                            {/* {isSizeDropdown && <SizeList/>} */}
+                                                        </ul> 
                                                             <SizeList/>
-                                                            {/* <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>xs</li>
+                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>xs</li>
                                                             <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>s</li>
                                                             <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>m</li>
                                                             <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>l</li>
-                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>xl</li> */}
-                                                        </ul>
+                                                            <li className={`${isSizeDropdown ? "" : "hidden"}`} onClick={updateProductSize}>xl</li>
                                                     </div>
-                                                </div>
+                                                </div> */}
                                                 <div className="margin-bottom-xxl"> 
                                                     <p className="underline">
                                                     what's my size?
@@ -134,7 +135,7 @@ const PdpTop = () => {
                                 <div className="pdp-content-mobile">
                                     <div className="column pdp-product-image">
                                         <picture>
-                                            <img className="pdp-product-image" src={Product1}/>
+                                            <img className="pdp-product-image" src={ProductImage1}/>
                                         </picture>
                                     </div>
                                     <div className="column pdp-product-description">
@@ -176,14 +177,16 @@ const PdpTop = () => {
                                             <div>
                                                 <div className="dropdown margin-bottom-s">
                                                     <div>
-                                                        <ul onClick={toggleDropdown}>
+                                                        {/* <ul 
+                                                            onClick = {setIsSizeDropdown(!isSizeDropdown)} 
+                                                        >
                                                             <li className="active" disabled>size</li>
                                                             <li className="hidden">xs</li>
                                                             <li className="hidden">s</li>
                                                             <li className="hidden">m</li>
                                                             <li className="hidden">l</li>
                                                             <li className="hidden">xl</li>
-                                                        </ul>
+                                                        </ul> */}
                                                     </div>
                                                 </div>
                                                 <div className="margin-bottom-xxl"> 
