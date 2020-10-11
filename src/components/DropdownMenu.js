@@ -3,22 +3,22 @@ import React, { useState } from 'react';
 const DropdownMenu = ({options, prompt, value, onChange}) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    // const SizeList = () => {
-    //     return(
-    //         options.map(option =>
-    //             <div 
-    //                 key={option.id} 
-    //                 className={`${isOpen ? null : "hidden"}`}
-    //                 onClick={() =>{
-    //                     onChange(option)
-    //                     setIsOpen(false)
-    //                 }}
-    //             >
-    //                 {option.size}
-    //             </div>
-    //         )
-    //     )
-    // }
+    const SizeList = () => {
+        return(
+            options.map(option =>
+                <div 
+                key={option.id} 
+                className={`option ${isOpen ? "" : "hidden"}`}
+                onClick={() => {
+                    onChange(option.name)
+                    setIsOpen(!isOpen)
+                }}
+                >
+                {option.name}
+                </div>
+            )
+        )
+    }
 
     return(
         <div className="dropdown margin-bottom-s">
@@ -32,19 +32,7 @@ const DropdownMenu = ({options, prompt, value, onChange}) => {
                     >
                         {value ? value: prompt}
                     </div>
-                    {/* <SizeList /> */}
-                    {options.map(option =>
-                    <div 
-                        key={option.id} 
-                        className={`option ${isOpen ? "" : "hidden"}`}
-                        onClick={() => {
-                            onChange(option.name)
-                            setIsOpen(!isOpen)
-                        }}
-                        >
-                        {option.name}
-                    </div>
-                    )}
+                    <SizeList />
                 </div>
             </div>
         </div>
