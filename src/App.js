@@ -5,10 +5,12 @@ import PdpBottom from './components/PdpBottom';
 function App() {
   return (
     <div className="App">
-      <main>
-        <PdpTop />
-        <PdpBottom />
-      </main>
+      <div className="body-wrapper">
+        <main>
+          <PdpTop />
+          <PdpBottom />
+        </main>
+      </div>
     </div>
   );
 }
